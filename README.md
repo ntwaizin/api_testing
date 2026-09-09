@@ -12,3 +12,17 @@ Organisers to record race results.
 Users to view available events and results.
 
 The system uses Microsoft SQL Server for the database and follows a relational database structure.
+
+2.1 Organisers
+
+Stores information about people responsible for organising RaceDay events.
+
+Main fields:
+
+OrganiserID – Primary Key
+FirstName
+LastName
+Email
+Phone
+
+Each organiser can manage multiple events.
