@@ -56,4 +56,17 @@ EntryFee
 
 Each event can have multiple categories.
 
+2.4 Participants
 
+Stores information about people participating in the races.
+
+Main fields:
+
+ParticipantID – Primary Key
+FirstName
+LastName
+Email
+Phone
+DateOfBirth
+
+Each participant can enrol in multiple race categories.
