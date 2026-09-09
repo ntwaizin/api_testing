@@ -829,3 +829,7 @@ REST API
 ERD / Database modelling
 dbdiagram.io
 Git and GitHub
+
+Conclusion
+
+The RaceDay System provides a simple relational database for managing running events and participants.
