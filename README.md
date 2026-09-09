@@ -769,3 +769,54 @@ Categories
 Participants
 Enrolments
 Results
+
+Testing
+
+The database can be tested using:
+
+SELECT * FROM Organisers;
+SELECT * FROM Events;
+SELECT * FROM Categories;
+SELECT * FROM Participants;
+SELECT * FROM Enrolments;
+SELECT * FROM Results;
+
+A relationship test can also be performed by joining the tables together.
+
+The relationship query shows:
+
+Participant name
+Event name
+Category
+Distance
+Entry fee
+Enrolment date
+Payment status
+Finish time
+Position
+Result status
+15. Design Summary
+
+The main system flow is:
+
+Organiser
+    ↓
+Event
+    ↓
+Category
+    ↓
+Enrolment
+    ↓
+Result
+
+Participants are connected through the Enrolments table:
+
+Participant
+     ↓
+Enrolment
+     ↓
+Category
+
+This design keeps the database simple and avoids unnecessary tables.
+
+The database contains exactly six entities, as required.
