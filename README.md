@@ -113,3 +113,425 @@ API Endpoint Plan
 The RaceDay API provides endpoints for authentication, profiles, events, categories, enrolments and results.
 
 The API uses JSON for request and response data.
+
+5.1 Authentication
+POST /api/auth/register
+
+Description: Register a new participant.
+
+Role: Public
+
+Request:
+
+{
+  "firstName": "Sipho",
+  "lastName": "Dlamini",
+  "email": "sipho@gmail.com",
+  "password": "Password123",
+  "phone": "0711234567",
+  "dateOfBirth": "1998-05-12"
+}
+
+Response – 201 Created:
+
+{
+  "message": "User registered successfully",
+  "participantId": 1,
+  "email": "sipho@gmail.com"
+}
+POST /api/auth/login
+
+Description: Authenticate a user and provide an access token.
+
+Role: Public
+
+Request:
+
+{
+  "email": "sipho@gmail.com",
+  "password": "Password123"
+}
+
+Response – 200 OK:
+
+{
+  "message": "Login successful",
+  "token": "sample-access-token",
+  "participantId": 1,
+  "role": "Participant"
+}
+5.2 User Profile
+GET /api/profile
+
+Description: View the logged-in participant's profile.
+
+Role: Participant
+
+Request: No request body.
+
+Response – 200 OK:
+
+{
+  "participantId": 1,
+  "firstName": "Sipho",
+  "lastName": "Dlamini",
+  "email": "sipho@gmail.com",
+  "phone": "0711234567",
+  "dateOfBirth": "1998-05-12"
+}
+PUT /api/profile
+
+Description: Update the participant's profile.
+
+Role: Participant
+
+Request:
+
+{
+  "firstName": "Sipho",
+  "lastName": "Dlamini",
+  "email": "sipho@gmail.com",
+  "phone": "0719998888",
+  "dateOfBirth": "1998-05-12"
+}
+
+Response – 200 OK:
+
+{
+  "message": "Profile updated successfully"
+}
+5.3 Events
+GET /api/events
+
+Description: View all available RaceDay events.
+
+Role: Public
+
+Request: No request body.
+
+Response – 200 OK:
+
+[
+  {
+    "eventId": 1,
+    "eventName": "Johannesburg City Run",
+    "eventDate": "2026-10-10",
+    "location": "Johannesburg",
+    "description": "Annual city running event"
+  },
+  {
+    "eventId": 2,
+    "eventName": "Pretoria Spring Race",
+    "eventDate": "2026-10-24",
+    "location": "Pretoria",
+    "description": "Spring running event"
+  }
+]
+GET /api/events/{eventId}
+
+Description: View details of one event.
+
+Role: Public
+
+Example:
+
+GET /api/events/1
+
+Response – 200 OK:
+
+{
+  "eventId": 1,
+  "organiserId": 1,
+  "eventName": "Johannesburg City Run",
+  "eventDate": "2026-10-10",
+  "location": "Johannesburg",
+  "description": "Annual city running event"
+}
+POST /api/events
+
+Description: Create a new RaceDay event.
+
+Role: Organiser
+
+Request:
+
+{
+  "eventName": "Durban Beach Run",
+  "eventDate": "2026-11-21",
+  "location": "Durban",
+  "description": "Annual beach running event"
+}
+
+Response – 201 Created:
+
+{
+  "message": "Event created successfully",
+  "eventId": 4
+}
+PUT /api/events/{eventId}
+
+Description: Update an existing event.
+
+Role: Organiser
+
+Request:
+
+{
+  "eventName": "Johannesburg City Run Updated",
+  "eventDate": "2026-10-10",
+  "location": "Johannesburg",
+  "description": "Updated annual city running event"
+}
+
+Response – 200 OK:
+
+{
+  "message": "Event updated successfully"
+}
+DELETE /api/events/{eventId}
+
+Description: Delete an event.
+
+Role: Organiser
+
+Request: No request body.
+
+Response – 200 OK:
+
+{
+  "message": "Event deleted successfully"
+}
+5.4 Categories
+GET /api/events/{eventId}/categories
+
+Description: View all categories for an event.
+
+Role: Public
+
+Response – 200 OK:
+
+[
+  {
+    "categoryId": 1,
+    "categoryName": "Fun Run",
+    "distanceKM": 5.00,
+    "entryFee": 100.00
+  },
+  {
+    "categoryId": 2,
+    "categoryName": "Main Race",
+    "distanceKM": 10.00,
+    "entryFee": 180.00
+  }
+]
+POST /api/events/{eventId}/categories
+
+Description: Add a category to an event.
+
+Role: Organiser
+
+Request:
+
+{
+  "categoryName": "Half Marathon",
+  "distanceKM": 21.10,
+  "entryFee": 300.00
+}
+
+Response – 201 Created:
+
+{
+  "message": "Category created successfully",
+  "categoryId": 7
+}
+PUT /api/categories/{categoryId}
+
+Description: Update a race category.
+
+Role: Organiser
+
+Request:
+
+{
+  "categoryName": "10 KM Main Race",
+  "distanceKM": 10.00,
+  "entryFee": 200.00
+}
+
+Response – 200 OK:
+
+{
+  "message": "Category updated successfully"
+}
+DELETE /api/categories/{categoryId}
+
+Description: Delete a race category.
+
+Role: Organiser
+
+Request: No request body.
+
+Response – 200 OK:
+
+{
+  "message": "Category deleted successfully"
+}
+5.5 Enrolments
+POST /api/enrolments
+
+Description: Enrol a participant into an event category.
+
+Role: Participant
+
+Request:
+
+{
+  "categoryId": 1
+}
+
+Response – 201 Created:
+
+{
+  "message": "Enrolment created successfully",
+  "enrolmentId": 1,
+  "participantId": 1,
+  "categoryId": 1,
+  "paymentStatus": "Pending"
+}
+GET /api/enrolments
+
+Description: View the logged-in participant's enrolments.
+
+Role: Participant
+
+Response – 200 OK:
+
+[
+  {
+    "enrolmentId": 1,
+    "eventName": "Johannesburg City Run",
+    "categoryName": "Fun Run",
+    "distanceKM": 5.00,
+    "entryFee": 100.00,
+    "enrolmentDate": "2026-09-01",
+    "paymentStatus": "Paid"
+  }
+]
+GET /api/events/{eventId}/enrolments
+
+Description: View participants enrolled in an event.
+
+Role: Organiser
+
+Response – 200 OK:
+
+[
+  {
+    "enrolmentId": 1,
+    "participantId": 1,
+    "participantName": "Sipho Dlamini",
+    "categoryName": "Fun Run",
+    "paymentStatus": "Paid"
+  },
+  {
+    "enrolmentId": 3,
+    "participantId": 2,
+    "participantName": "Lerato Maseko",
+    "categoryName": "Main Race",
+    "paymentStatus": "Pending"
+  }
+]
+DELETE /api/enrolments/{enrolmentId}
+
+Description: Cancel an enrolment.
+
+Role: Participant
+
+Request: No request body.
+
+Response – 200 OK:
+
+{
+  "message": "Enrolment cancelled successfully"
+}
+5.6 Results
+GET /api/results
+
+Description: View available race results.
+
+Role: Public
+
+Response – 200 OK:
+
+[
+  {
+    "resultId": 1,
+    "participantName": "Sipho Dlamini",
+    "eventName": "Johannesburg City Run",
+    "categoryName": "Fun Run",
+    "finishTime": "00:28:35",
+    "position": 15,
+    "resultStatus": "Finished"
+  }
+]
+GET /api/results/{resultId}
+
+Description: View a specific race result.
+
+Role: Public
+
+Example:
+
+GET /api/results/1
+
+Response – 200 OK:
+
+{
+  "resultId": 1,
+  "participantName": "Sipho Dlamini",
+  "eventName": "Johannesburg City Run",
+  "categoryName": "Fun Run",
+  "finishTime": "00:28:35",
+  "position": 15,
+  "resultStatus": "Finished"
+}
+POST /api/results
+
+Description: Record a participant's race result.
+
+Role: Organiser
+
+Request:
+
+{
+  "enrolmentId": 1,
+  "finishTime": "00:28:35",
+  "position": 15,
+  "resultStatus": "Finished"
+}
+
+Response – 201 Created:
+
+{
+  "message": "Result recorded successfully",
+  "resultId": 1
+}
+PUT /api/results/{resultId}
+
+Description: Update a race result.
+
+Role: Organiser
+
+Request:
+
+{
+  "finishTime": "00:27:55",
+  "position": 12,
+  "resultStatus": "Finished"
+}
+
+Response – 200 OK:
+
+{
+  "message": "Result updated successfully"
+}
