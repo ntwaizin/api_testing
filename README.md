@@ -42,6 +42,18 @@ Description
 
 Each event belongs to one organiser
 
+2.3 Categories
 
+Stores the different race categories available within an event.
+
+Main fields:
+
+CategoryID – Primary Key
+EventID – Foreign Key
+CategoryName
+DistanceKM
+EntryFee
+
+Each event can have multiple categories.
 
 
