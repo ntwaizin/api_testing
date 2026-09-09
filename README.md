@@ -99,3 +99,10 @@ Position
 ResultStatus
 
 Each enrolment can have one result.
+
+Relationships
+One organiser can manage many events.
+One event can contain many categories.
+One participant can have many enrolments.
+One category can have many enrolments.
+One enrolment can have one result.
