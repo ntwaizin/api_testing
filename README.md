@@ -833,3 +833,13 @@ Git and GitHub
 Conclusion
 
 The RaceDay System provides a simple relational database for managing running events and participants.
+The project uses exactly six database entities:
+
+Organisers
+Events
+Categories
+Participants
+Enrolments
+Results
+
+The ERD, API endpoint plan and SQL Server database are designed to work together.
