@@ -70,3 +70,32 @@ Phone
 DateOfBirth
 
 Each participant can enrol in multiple race categories.
+
+
+2.5 Enrolments
+
+Stores participant registrations for race categories.
+
+Main fields:
+
+EnrolmentID – Primary Key
+ParticipantID – Foreign Key
+CategoryID – Foreign Key
+EnrolmentDate
+PaymentStatus
+
+The Enrolments table connects participants with categories.
+
+2.6 Results
+
+Stores the results achieved by participants.
+
+Main fields:
+
+ResultID – Primary Key
+EnrolmentID – Foreign Key
+FinishTime
+Position
+ResultStatus
+
+Each enrolment can have one result.
