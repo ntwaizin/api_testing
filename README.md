@@ -820,3 +820,12 @@ Category
 This design keeps the database simple and avoids unnecessary tables.
 
 The database contains exactly six entities, as required.
+
+Technologies Used
+Microsoft SQL Server
+SQL Server Management Studio (SSMS)
+SQL
+REST API
+ERD / Database modelling
+dbdiagram.io
+Git and GitHub
