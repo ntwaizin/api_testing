@@ -106,3 +106,10 @@ One event can contain many categories.
 One participant can have many enrolments.
 One category can have many enrolments.
 One enrolment can have one result.
+
+
+API Endpoint Plan
+
+The RaceDay API provides endpoints for authentication, profiles, events, categories, enrolments and results.
+
+The API uses JSON for request and response data.
