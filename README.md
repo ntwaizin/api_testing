@@ -535,3 +535,57 @@ Response – 200 OK:
 {
   "message": "Result updated successfully"
 }
+
+
+6. API Error Responses
+
+The API should also return clear error messages when a request cannot be completed.
+
+400 Bad Request
+
+Used when the information supplied by the user is invalid.
+
+{
+  "error": "Invalid request",
+  "message": "Email address is required"
+}
+401 Unauthorized
+
+Used when the user is not logged in or the authentication token is invalid.
+
+{
+  "error": "Unauthorized",
+  "message": "Please log in to access this resource"
+}
+403 Forbidden
+
+Used when the user does not have permission to perform an action.
+
+{
+  "error": "Forbidden",
+  "message": "Organiser role required"
+}
+404 Not Found
+
+Used when the requested record does not exist.
+
+{
+  "error": "Not Found",
+  "message": "Event not found"
+}
+409 Conflict
+
+Used when the request conflicts with existing data.
+
+{
+  "error": "Conflict",
+  "message": "Email address is already registered"
+}
+500 Internal Server Error
+
+Used when an unexpected server error occurs.
+
+{
+  "error": "Internal Server Error",
+  "message": "An unexpected error occurred"
+}
