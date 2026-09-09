@@ -589,3 +589,64 @@ Used when an unexpected server error occurs.
   "error": "Internal Server Error",
   "message": "An unexpected error occurred"
 }
+
+
+User Roles
+Public
+
+A public user can:
+
+Register
+Login
+View events
+View event details
+View categories
+View race results
+Participant
+
+A participant can:
+
+View their profile
+Update their profile
+Enrol in race categories
+View their enrolments
+Cancel an enrolment
+Organiser
+
+An organiser can:
+
+Create events
+Update events
+Delete events
+Create categories
+Update categories
+Delete categories
+View event enrolments
+Record race results
+Update race results
+9. SQL Server Database
+
+The database is called:
+
+RaceDay
+
+The database is designed for Microsoft SQL Server and can be created using SQL Server Management Studio (SSMS).
+
+The script creates exactly six tables:
+
+Organisers
+Events
+Categories
+Participants
+Enrolments
+Results
+
+The SQL script includes:
+
+Primary keys
+Foreign keys
+NOT NULL constraints
+UNIQUE constraints
+DEFAULT values
+Sample data
+Relationship testing queries
