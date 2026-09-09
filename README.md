@@ -26,3 +26,22 @@ Email
 Phone
 
 Each organiser can manage multiple events.
+
+2.2 Events
+
+Stores information about RaceDay running events.
+
+Main fields:
+
+EventID – Primary Key
+OrganiserID – Foreign Key
+EventName
+EventDate
+Location
+Description
+
+Each event belongs to one organiser
+
+
+
+
