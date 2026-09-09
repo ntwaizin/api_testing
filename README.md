@@ -650,3 +650,41 @@ UNIQUE constraints
 DEFAULT values
 Sample data
 Relationship testing queries
+
+
+
+The database includes sample data to demonstrate that the system works.
+
+Organisers
+Thabo Mokoena
+Sarah Williams
+Events
+Johannesburg City Run
+Pretoria Spring Race
+Cape Town Coastal Run
+Categories
+Fun Run – 5 KM
+Main Race – 10 KM
+Coastal Race – 15 KM
+Participants
+Sipho Dlamini
+Lerato Maseko
+James Smith
+Nomsa Khumalo
+Enrolments
+
+Sample enrolments demonstrate participants registering for different race categories.
+
+Payment statuses include:
+
+Paid
+Pending
+Results
+
+Sample results demonstrate completed races.
+
+Results include:
+
+Finish time
+Position
+Result status
