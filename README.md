@@ -736,3 +736,36 @@ RaceDay/
 │   └── RaceDay.sql
 │
 └── README.md
+
+How to Run the Database
+Step 1
+
+Open SQL Server Management Studio (SSMS).
+
+Step 2
+
+Open the RaceDay SQL script.
+
+Step 3
+
+Run the complete script.
+
+The script will:
+
+Create the RaceDay database.
+Select the RaceDay database.
+Create all six tables.
+Create primary and foreign keys.
+Insert sample data.
+Display the data.
+Test the table relationships.
+Step 4
+
+Check that these six tables appear:
+
+Organisers
+Events
+Categories
+Participants
+Enrolments
+Results
