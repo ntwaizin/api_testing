@@ -688,3 +688,37 @@ Results include:
 Finish time
 Position
 Result status
+
+The database uses constraints to maintain data accuracy.
+
+Primary Keys
+
+Every table has a primary key:
+
+OrganiserID
+EventID
+CategoryID
+ParticipantID
+EnrolmentID
+ResultID
+Foreign Keys
+
+Foreign keys connect the tables:
+
+Events.OrganiserID
+Categories.EventID
+Enrolments.ParticipantID
+Enrolments.CategoryID
+Results.EnrolmentID
+Unique Values
+
+Email addresses are unique for:
+
+Organisers
+Participants
+
+The EnrolmentID in Results is also unique to maintain the one-to-one relationship between an enrolment and a result.
+
+Default Values
+PaymentStatus = Pending
+ResultStatus = Pending
