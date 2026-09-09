@@ -722,3 +722,17 @@ The EnrolmentID in Results is also unique to maintain the one-to-one relationshi
 Default Values
 PaymentStatus = Pending
 ResultStatus = Pending
+
+
+Project Structure
+RaceDay/
+│
+├── docs/
+│   ├── ERD.png
+│   ├── API_Endpoint_Plan.pdf
+│   └── README.md
+│
+├── sql/
+│   └── RaceDay.sql
+│
+└── README.md
